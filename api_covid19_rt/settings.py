@@ -25,7 +25,9 @@ SECRET_KEY = '(*&bphqk=qre6i7%+5p^d7vbazcn_myxj#at-ersz8^e9l+iff'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'dev.pipilika.com'
+]
 
 
 # Application definition
