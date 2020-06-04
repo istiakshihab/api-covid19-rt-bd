@@ -26,6 +26,7 @@ SECRET_KEY = '(*&bphqk=qre6i7%+5p^d7vbazcn_myxj#at-ersz8^e9l+iff'
 DEBUG = True
 
 ALLOWED_HOSTS = [
+    '127.0.0.1',
     'dev.pipilika.com'
 ]
 

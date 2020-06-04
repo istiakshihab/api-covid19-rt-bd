@@ -37,5 +37,5 @@ def get_data(area_name):
             hdis = rf.highest_density_interval(posteriors, p=.9)
             most_likely = posteriors.idxmax().rename('ML')
             result = pd.concat([most_likely, hdis], axis=1)
-            result = result.to_json(orient='index')
+            result = result.reset_index().to_json(orient='records')
             return result
