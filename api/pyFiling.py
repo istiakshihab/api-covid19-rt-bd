@@ -19,7 +19,7 @@ def get_data(area_name):
             original, smoothed = rf.prepare_cases(dataSeries)
             posteriors, log_likelihood = rf.get_posteriors(smoothed, GAMMA, r_t_range, sigma=.25)
             sigmas = np.linspace(1/20, 1, 20)
-            new, smoothed = rf.prepare_cases(dataSeries, cutoff=25)
+            new, smoothed = rf.prepare_cases(dataSeries, cutoff=5)
             if len(smoothed) == 0:
                 new, smoothed = rf.prepare_cases(dataSeries, cutoff=10)
             result = {}
