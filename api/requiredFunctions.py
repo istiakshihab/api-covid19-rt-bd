@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 from scipy import stats as sps
 
-def prepare_cases(cases, cutoff=25):
+def prepare_cases(cases, cutoff=5):
     new_cases = cases.diff()
 
     smoothed = new_cases.rolling(7,
