@@ -1,0 +1,91 @@
+[{
+    "Date": "2020-05-20",
+    "ML": 0.0,
+    "Low_90": 0.0,
+    "High_90": 10.81,
+    "district": "B. Baria"
+}, {
+    "Date": "2020-05-21",
+    "ML": 2.28,
+    "Low_90": 0.0,
+    "High_90": 5.76,
+    "district": "B. Baria"
+}, {
+    "Date": "2020-05-22",
+    "ML": 2.17,
+    "Low_90": 0.0,
+    "High_90": 4.55,
+    "district": "B. Baria"
+}, {
+    "Date": "2020-05-23",
+    "ML": 1.38,
+    "Low_90": 0.0,
+    "High_90": 3.45,
+    "district": "B. Baria"
+}, {
+    "Date": "2020-05-24",
+    "ML": 1.29,
+    "Low_90": 0.0,
+    "High_90": 3.1,
+    "district": "B. Baria"
+}, {
+    "Date": "2020-05-25",
+    "ML": 1.23,
+    "Low_90": 0.0,
+    "High_90": 2.86,
+    "district": "B. Baria"
+}, {
+    "Date": "2020-05-26",
+    "ML": 1.0,
+    "Low_90": 0.0,
+    "High_90": 2.54,
+    "district": "B. Baria"
+}, {
+    "Date": "2020-05-27",
+    "ML": 0.83,
+    "Low_90": 0.0,
+    "High_90": 2.32,
+    "district": "B. Baria"
+}, {
+    "Date": "2020-05-28",
+    "ML": 0.68,
+    "Low_90": 0.0,
+    "High_90": 2.15,
+    "district": "B. Baria"
+}, {
+    "Date": "2020-05-29",
+    "ML": 0.13,
+    "Low_90": 0.0,
+    "High_90": 2.02,
+    "district": "B. Baria"
+}, {
+    "Date": "2020-05-30",
+    "ML": 0.12,
+    "Low_90": 0.0,
+    "High_90": 1.91,
+    "district": "B. Baria"
+}, {
+    "Date": "2020-05-31",
+    "ML": 0.12,
+    "Low_90": 0.0,
+    "High_90": 1.81,
+    "district": "B. Baria"
+}, {
+    "Date": "2020-06-01",
+    "ML": 0.12,
+    "Low_90": 0.0,
+    "High_90": 1.81,
+    "district": "B. Baria"
+}, {
+    "Date": "2020-05-31",
+    "ML": 0.0,
+    "Low_90": 0.0,
+    "High_90": 10.81,
+    "district": "Bagerhat"
+}, {
+    "Date": "2020-06-01",
+    "ML": 1.95,
+    "Low_90": 0.0,
+    "High_90": 5.75,
+    "district": "Bagerhat"
+}]
