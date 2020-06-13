@@ -13,6 +13,8 @@ def get_data():
     datasetxl = rf.prepare_data(fileLoc, sheetLoc)
     resultFinal = ""
     for column in datasetxl:
+        if(column == "Bhola"):
+            break
         try:
             if(column != "Date"):
                 dataSeries = pd.Series(datasetxl[column].values, index=datasetxl['Date'])
