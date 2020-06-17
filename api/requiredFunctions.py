@@ -23,8 +23,8 @@ def prepare_data(fileLoc,sheetLoc):
     datasetxl = datasetxl.dropna(how='all', axis='columns')
     datasetxl = datasetxl.loc[:, ~datasetxl.columns.str.contains('^Unnamed',na=False)]
     datasetxl = datasetxl.drop([0,67,68,69])
-    datasetxl.to_csv("dataset.csv")
-    datasetxl = pd.read_csv("dataset.csv",header=None)
+    datasetxl.to_csv("static/data/dataset.csv")
+    datasetxl = pd.read_csv("static/data/dataset.csv",header=None)
     datasetxl = datasetxl.transpose()
     datasetxl = datasetxl.drop([0,1])
     datasetxl = datasetxl.reindex(index=datasetxl.index[::-1])

@@ -8,7 +8,7 @@ import re
 
 
 def get_data():
-    fileLoc  = finders.find('data/dataset.xlsx')
+    fileLoc  = "https://gitlab.com/api/v4/projects/18229284/repository/files/Pipilika_Coronavirus_cases.xlsx/raw?ref=NewUpdate"
     sheetLoc = "Sheet1"
     datasetxl = rf.prepare_data(fileLoc, sheetLoc)
     resultFinal = ""
