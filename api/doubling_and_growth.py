@@ -5,6 +5,7 @@ def get_doubling_and_growth_value():
     fileLoc  = "https://gitlab.com/api/v4/projects/18229284/repository/files/Pipilika_Coronavirus_cases.xlsx/raw?ref=NewUpdate"
     sheetLoc = "Sheet1"
     datasetxl = rf.prepare_data(fileLoc, sheetLoc)
+    datasetxl = rf.rolling_mean(datasetxl)
     resultFinal = ""
     for column in datasetxl:
         try:

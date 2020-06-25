@@ -122,3 +122,8 @@ def highest_density_interval(pmf, p=.9, debug=False):
                             f'High_{p*100:.0f}'])
 
 
+def rolling_mean(dataframe):
+    for column in dataframe:
+        if(column != "Date"):
+            dataframe[column] = dataframe[column].rolling(7).mean()
+    return dataframe
