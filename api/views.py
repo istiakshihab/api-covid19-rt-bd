@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from . import rt_calculation, doubling_and_growth
+from . import rt_calculation, doubling_and_growth, covid_percentages
 from django.core.files import File
 from django.contrib.staticfiles import finders
 import pandas as pd
@@ -13,6 +13,7 @@ def get_rt_value(request):
 def generate_json(request):
     rt_json = rt_calculation.get_data()
     doubling_and_growth_data_json = doubling_and_growth.get_doubling_and_growth_value()
+    percentage_data_json = covid_percentages.get_percentages()
     with open('static/data/data.json','w') as f:
         myFile = File(f)
         myFile.write(rt_json)
@@ -23,7 +24,12 @@ def generate_json(request):
         myFile.write(doubling_and_growth_data_json)
         myFile.closed
         f.closed
-    return HttpResponse(doubling_and_growth_data_json, content_type = 'application/json')
+    with open('static/data/percentages.json','w') as f:
+        myFile = File(f)
+        myFile.write(percentage_data_json)
+        myFile.closed
+        f.closed
+    return HttpResponse(percentage_data_json, content_type = 'application/json')
 
 def latest_rt(request):
     json = finders.find('data/data.json')
@@ -74,3 +80,8 @@ def latest_doubling_value(request):
     data = data.sort_values(by=['doubling times'], ascending= False)
     json = data.to_json(orient="records")
     return HttpResponse(json, content_type = 'application/json')
+
+def get_percentages(request):
+    json = finders.find('data/percentages.json')
+    file = open(json,'r')
+    return HttpResponse(file, content_type = 'application/json')
