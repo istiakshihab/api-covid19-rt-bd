@@ -30,12 +30,34 @@ def latest_rt(request):
     data = pd.read_json(json)
     data = data.sort_values(by=['Date'], ascending= False)
     data = data.drop_duplicates('district')
-    del data['Date']
     data = data.sort_values(by=['ML'], ascending= False)
     json = data.to_json(orient="records")
     return HttpResponse(json, content_type = 'application/json')
+
+def before_15_rt(request):
+    json = finders.find('data/data.json')
+    data = pd.read_json(json)
+    data = data.sort_values(by=['Date'], ascending= False)
+    tempData = data.drop_duplicates('Date')
+    tempData = tempData[15:]
+    data = data.loc[data['Date'] == tempData['Date'].iloc[0]]
+    data = data.drop_duplicates('district')
+    data = data.sort_values(by=['ML'], ascending= False)
+    json = data.to_json(orient="records")
+    return HttpResponse(json, content_type = 'application/json')
+
 
 def doubling_growth_data(request):
     json = finders.find('data/doubling_and_growth_data.json')
     file = open(json,'r')
     return HttpResponse(file, content_type = 'application/json')
+
+def latest_doubling_value(request):
+    json = finders.find('data/doubling_and_growth_data.json')
+    data = pd.read_json(json)
+    data = data.sort_values(by=['dates'], ascending= False)
+    data = data.drop_duplicates('district')
+    del data['growth_value']
+    data = data.sort_values(by=['doubling times'], ascending= False)
+    json = data.to_json(orient="records")
+    return HttpResponse(json, content_type = 'application/json')
