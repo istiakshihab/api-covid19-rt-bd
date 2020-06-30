@@ -49,9 +49,7 @@ def before_15_rt(request):
     tempData15 = data.loc[data['Date'] == tempData15['Date'].iloc[0]]
     data = data.drop_duplicates('district')
     data = data.sort_values(by=['ML'], ascending= False)
-    data = data[:15]
     merged_df = data.merge(tempData15, how = 'outer', on = ['district'])
-    merged_df = merged_df[:15]
     merged_df["ML_y"] = merged_df["ML_y"].fillna(0)
     merged_df["Low_90_y"] = merged_df["Low_90_y"].fillna(0)
     merged_df["High_90_y"] = merged_df["High_90_y"].fillna(0)
