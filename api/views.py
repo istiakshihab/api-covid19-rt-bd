@@ -83,3 +83,39 @@ def get_percentages(request):
     json = finders.find('data/percentages.json')
     file = open(json,'r')
     return HttpResponse(file, content_type = 'application/json')
+
+def get_comparison_doubling(request):
+    json = finders.find('data/doubling_and_growth_data.json')
+    data = open(json,'r')
+    data = pd.read_json(data)
+    data = data.sort_values(by=['dates'], ascending= False)
+    tempData15 = data.drop_duplicates('dates')
+    tempData15 = tempData15[15:]
+    tempData15 = data.loc[data['dates'] == tempData15['dates'].iloc[0]]
+    data = data.drop_duplicates('district')
+    data = data.sort_values(by=['doubling times'], ascending= False)
+    del data['growth_value']
+    merged_df = data.merge(tempData15, how = 'outer', on = ['district'])
+    del merged_df["dates_y"]
+    del merged_df["growth_value"]
+    data = merged_df
+    json = data.to_json(orient='records')
+    return HttpResponse(json, content_type = 'application/json')
+
+def get_comparison_growth(request):
+    json = finders.find('data/doubling_and_growth_data.json')
+    data = open(json,'r')
+    data = pd.read_json(data)
+    data = data.sort_values(by=['dates'], ascending= False)
+    tempData15 = data.drop_duplicates('dates')
+    tempData15 = tempData15[15:]
+    tempData15 = data.loc[data['dates'] == tempData15['dates'].iloc[0]]
+    data = data.drop_duplicates('district')
+    data = data.sort_values(by=['growth_value'], ascending= False)
+    del data['doubling times']
+    merged_df = data.merge(tempData15, how = 'outer', on = ['district'])
+    del merged_df["dates_y"]
+    del merged_df["doubling times"]
+    data = merged_df
+    json = data.to_json(orient='records')
+    return HttpResponse(json, content_type = 'application/json')

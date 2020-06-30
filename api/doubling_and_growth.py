@@ -47,4 +47,3 @@ def get_doubling_and_growth_value():
     resultFinal = "["+resultFinal+"]"
     return resultFinal
                 
-            
