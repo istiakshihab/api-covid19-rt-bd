@@ -14,9 +14,9 @@ def get_new_data():
     resultFinal = ""
     for elem in listing:
         dataset = datasetx.loc[datasetx['dis_name'] == elem]
-        dataset['tdate'] = pd.to_datetime(dataset['tdate'])
-        dataset = dataset.sort_values(by='tdate')
-        dataSeries = pd.Series(dataset['positive_cases'].values, index=dataset['tdate'])
+        dataset['Date'] = pd.to_datetime(dataset['tdate'])
+        dataset = dataset.sort_values(by='Date')
+        dataSeries = pd.Series(dataset['positive_cases'].values, index=dataset['Date'])
         dataSeries = dataSeries.sort_index()
         dataSeries = dataSeries.cumsum()
         try:
