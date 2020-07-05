@@ -50,6 +50,11 @@ def get_new_data():
             resultFinal += result
         except IndexError:
             pass
+        except ValueError:
+            pass
+        except TypeError:
+            pass
+
     resultFinal = resultFinal.replace("[","")
     resultFinal = resultFinal.replace("]",",")
     resultFinal = resultFinal[:-1]
