@@ -11,8 +11,8 @@ def get_rt_value(request):
     return HttpResponse(file, content_type = 'application/json')
 
 def generate_json(request):
-    rt_json = rt_calculation.get_data()
-    doubling_and_growth_data_json = doubling_and_growth.get_doubling_and_growth_value()
+    rt_json = rt_calculation.get_new_data()
+    doubling_and_growth_data_json = doubling_and_growth.get_new_doubling_and_growth_value()
     percentage_data_json = covid_percentages.get_percentages()
     with open('static/data/data.json','w') as f:
         myFile = File(f)
@@ -29,7 +29,7 @@ def generate_json(request):
         myFile.write(percentage_data_json)
         myFile.closed
         f.closed
-    return HttpResponse(percentage_data_json, content_type = 'application/json')
+    return HttpResponse(rt_json, content_type = 'application/json')
 
 def latest_rt(request):
     json = finders.find('data/data.json')

@@ -17,7 +17,6 @@ def prepare_cases(cases, cutoff=5):
     
     return original, smoothed
 
-
 def prepare_data(fileLoc,sheetLoc):
     datasetxl = pd.read_excel(fileLoc,sheetLoc)
     datasetxl = datasetxl.dropna(how='all', axis='columns')
